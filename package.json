@@ -1,0 +1,38 @@
+{
+  "name": "elo-rpc-client",
+  "version": "0.1.0",
+  "description": "Lightweight, WebSocket RPC client with `elo-serializer` for binary serialization",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyawswarthwin/elo-rpc-client.git"
+  },
+  "keywords": [
+    "rpc",
+    "websocket"
+  ],
+  "author": "Kyaw Swar Thwin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kyawswarthwin/elo-rpc-client/issues"
+  },
+  "homepage": "https://github.com/kyawswarthwin/elo-rpc-client#readme",
+  "dependencies": {
+    "elo-serializer": "^0.1.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  }
+}
