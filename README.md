@@ -1,6 +1,6 @@
 # elo-rpc-client
 
-Lightweight, WebSocket RPC client with [`elo-serializer`](https://www.npmjs.com/package/elo-serializer) for binary serialization
+Lightweight, WebSocket RPC client with [`elo-isomorphic-ws`](https://www.npmjs.com/package/elo-isomorphic-ws) for cross-platform WebSocket support and [`elo-serializer`](https://www.npmjs.com/package/elo-serializer) for binary serialization
 
 ## Installation
 

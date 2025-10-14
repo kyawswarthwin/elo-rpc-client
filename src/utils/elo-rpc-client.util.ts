@@ -1,7 +1,7 @@
+import { WebSocket } from 'elo-isomorphic-ws';
 import { ELOInfer, eloPack, ELOSchema, eloUnpack } from 'elo-serializer';
 
 export class ELORpcClient {
-  private url: string;
   private ws: WebSocket | null = null;
   private requestId = 0;
   private schema = {
@@ -10,13 +10,16 @@ export class ELORpcClient {
     payload: 'binary',
   } as const satisfies ELOSchema;
 
-  constructor(url: string) {
-    this.url = url;
-  }
+  constructor(
+    private url: string,
+    private headers?: HeadersInit,
+  ) {}
 
   connect(): Promise<void> {
     this.disconnect();
-    this.ws = new WebSocket(this.url);
+    this.ws = new WebSocket(this.url, {
+      headers: this.headers,
+    });
     this.ws.binaryType = 'arraybuffer';
 
     return new Promise((resolve, reject) => {
