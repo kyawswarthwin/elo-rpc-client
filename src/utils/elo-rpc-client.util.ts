@@ -39,6 +39,7 @@ export class ELORpcClient {
   call<T, P extends Record<string, unknown>>(
     method: string,
     params: P = {} as P,
+    timeout = 30000,
   ): Promise<T> {
     if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
       throw new Error('Not connected!');
@@ -54,16 +55,28 @@ export class ELORpcClient {
 
     this.ws.send(eloPack(this.schema, data));
 
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       const handler = (event: MessageEvent) => {
         try {
           const message = this.handleMessage(event.data);
 
           if (message.requestId === requestId && message.type === method) {
-            this.ws!.removeEventListener('message', handler);
+            cleanup();
             resolve(message.payload as T);
           }
         } catch {}
+      };
+
+      const timeoutId = setTimeout(() => {
+        cleanup();
+        reject(
+          new Error(`RPC call to "${method}" timed out after ${timeout}ms`),
+        );
+      }, timeout);
+
+      const cleanup = () => {
+        clearTimeout(timeoutId);
+        this.ws!.removeEventListener('message', handler);
       };
 
       this.ws!.addEventListener('message', handler);
