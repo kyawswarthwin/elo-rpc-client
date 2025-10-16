@@ -1,6 +1,6 @@
 {
   "name": "elo-rpc-client",
-  "version": "0.3.4",
+  "version": "0.2.5",
   "description": "Lightweight, WebSocket RPC client with binary serialization",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -30,8 +30,8 @@
   },
   "homepage": "https://github.com/kyawswarthwin/elo-rpc-client#readme",
   "dependencies": {
-    "elo-isomorphic-ws": "^0.1.0",
-    "elo-serializer": "^0.1.0"
+    "elo-isomorphic-ws": "^0.2.5",
+    "elo-serializer": "^0.2.5"
   },
   "devDependencies": {
     "tsup": "^8.5.0",
