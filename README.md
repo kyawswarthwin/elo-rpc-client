@@ -20,6 +20,20 @@ console.log(result);
 client.disconnect();
 ```
 
+## Use Cases
+
+### 🎮 Games
+
+- Multiplayer synchronization
+- Real-time interactions
+- Live game updates
+
+### 📱 Apps
+
+- Chat systems
+- Live notifications
+- Real-time dashboards
+
 ## License
 
 MIT
