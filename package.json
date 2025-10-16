@@ -1,6 +1,6 @@
 {
   "name": "elo-rpc-client",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Lightweight, WebSocket RPC client with binary serialization",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

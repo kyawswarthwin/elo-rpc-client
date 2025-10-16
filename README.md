@@ -13,7 +13,7 @@ npm install elo-rpc-client
 ```typescript
 import { ELORpcClient } from 'elo-rpc-client';
 
-const client = new ELORpcClient('ws://example.com');
+const client = new ELORpcClient('wss://echo.websocket.org');
 await client.connect();
 const result = await client.call<string>('method', { param: 'value' });
 console.log(result);
